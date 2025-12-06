@@ -1,6 +1,6 @@
 import sqlite3
 
-def createTables():
+def fn_createDataBaseTables():
 	connection = sqlite3.connect('database.db')
 	connection.execute("PRAGMA foreign_keys = ON;")
 
