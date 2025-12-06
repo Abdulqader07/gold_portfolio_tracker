@@ -3,6 +3,7 @@ import json
 import sqlite3
 import requests
 from datetime import datetime
+from database.tables import fn_createDataBaseTables
 
 PATH = './database/database.db'
 
@@ -23,11 +24,7 @@ def fn_historicalData():
 		connection = sqlite3.connect(PATH)
 		cursor = connection.cursor()
 
-		cursor.execute('''
-			CREATE TABLE IF NOT EXISTS historicalData(
-				dateXAU DATE PRIMARY KEY NOT NULL,
-				priceXAU FLOAT NOT NULL
-			);''')
+		fn_createDataBaseTables()
 
 		dataLength = len(data)
 
