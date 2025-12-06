@@ -21,10 +21,10 @@ def fn_historicalData():
 
 	if not os.path.exists(PATH):
 
+		fn_createDataBaseTables()
+
 		connection = sqlite3.connect(PATH)
 		cursor = connection.cursor()
-
-		fn_createDataBaseTables()
 
 		dataLength = len(data)
 
