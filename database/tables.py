@@ -24,7 +24,7 @@ def fn_createDataBaseTables():
 
 			purchase_date DATE NOT NULL,
 			purchase_price FLOAT NOT NULL,
-			model_name TEXT,
+			model_name TEXT NOT NULL,
 			
 			created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 			);''')
@@ -53,4 +53,4 @@ def fn_createDataBaseTables():
 	connection.commit()
 	cursor.close()
 
-	return 'DataBase Tables Are Created.'
+	return 'DataBase Tables Are Created From (tables.py) file.'
