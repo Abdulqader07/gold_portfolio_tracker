@@ -54,6 +54,12 @@ def fn_historicalData():
 	lastJsonDateStr = str(data[-1][0])
 	lastJsonDate = datetime.fromtimestamp(int(lastJsonDateStr[:-3])).strftime('%Y-%m-%d')
 
+	if lastJsonDate == lastDateXAU[0]:
+		connection.commit()
+		cursor.close()
+
+		return 'No New Changes.'
+
 	datesList = list()
 
 	while lastJsonDate > lastDateXAU[0]:
@@ -78,3 +84,5 @@ def fn_historicalData():
 	cursor.close()
 
 	return 'DataBase Updated, (New Data Found).'
+
+print(fn_historicalData())
